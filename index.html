@@ -66,21 +66,17 @@
     <script>
 
       var sendChat = function()
-       {
-        var p = $("#chatEntry").val()
+        {
+            var p = $("#chatEntry").val()
             $("#chatLog").append(p);  
             $("#chatLog").append("\n"); 
-       }
+        }
 
         $("#sendChat").on('click',function()
         {
             sendChat();
         });
 
-        $(document).ready(function(){
-            var textarea = $("#chatLog");
-            textarea.scrollTop(textarea[0].scrollHeight);
-        });
         $("#chatEntry").keydown(function(e)
         {
             if(e.which==13)
