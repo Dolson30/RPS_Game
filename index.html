@@ -1,0 +1,93 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Rock Paper Scissors</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+</head>
+<body>
+    
+    <div class="container text-center">
+        <div class="page-header">
+            <h1>Rock Paper Scissors!</h1>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+                <h1 id="Player Name">Hello</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6, col-md-6 col-lg-6 text-center">
+                <h1 id="player1Name">Name</h1>
+                <button class="rock">Rock</button>
+                <button class="paper">Paper</button>
+                <button class="scissors">Scissors</button>
+            </div>
+            <div class="col-sm-6, col-md-6 col-lg-6 text-center">
+                    <h1 id="player1Name">Name</h1>
+                    <h5 id="waitMessage">Waiting on entry</h5>
+                </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-1 col-md-1 col-lg-1"></div>
+            <div class="col-sm-4 col-md-4 col-lg-4 text-center">
+                <p id="playerWins">Your Wins: </p>
+                <p id="playerLosses">Your Wins: </p>
+                <p id="yourLastChoice">Your Last Choice:</p>
+                <p id="opponentLastChoice">Opponents Last Choice:</p>
+            </div>
+            <div class="col-sm-2 col-md-2 col-lg-2 text-center">
+                    <h1>Chat Log</h1>
+                    <textarea readonly id="chatLog" rows="10"cols="20" style="resize: none; overflow-y: scroll;"></textarea>
+            </div>
+            <div class="col-sm-4 col-md-4 col-lg-4 text-center">
+                    <p id="playerWins">Opponent Wins: </p>
+                    <p id="playerLosses">Opponent Losses: </p>
+                    <p id="yourLastChoice">Opponent's Last Choice:</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-5 col-md-5 col-lg-5"></div>
+            <div class="col-sm-2 col-md-2 col-lg-2">
+                <input type="text" id="chatEntry">
+                <button id="sendChat">Send</button>
+            </div>
+        </div>
+      
+                
+
+    </div>
+    <script>
+
+      var sendChat = function()
+       {
+        var p = $("#chatEntry").val()
+            $("#chatLog").append(p);  
+            $("#chatLog").append("\n"); 
+       }
+
+        $("#sendChat").on('click',function()
+        {
+            sendChat();
+        });
+
+        $(document).ready(function(){
+            var textarea = $("#chatLog");
+            textarea.scrollTop(textarea[0].scrollHeight);
+        });
+        $("#chatEntry").keydown(function(e)
+        {
+            if(e.which==13)
+            {
+                sendChat();
+            }
+        });
+    </script>
+</body>
+</html>
